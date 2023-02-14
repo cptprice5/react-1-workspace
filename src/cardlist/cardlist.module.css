@@ -1,0 +1,19 @@
+.cardlistcontainer {
+   height: 100%;
+   width: 100%;
+ }
+
+ .loadingCard {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+   color: #000;
+   margin: 20px;
+   border-radius: 10px;
+   background-color: #F4F5D4;
+   padding: 10px;
+ }
