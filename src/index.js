@@ -5,8 +5,16 @@ import App from './App';
 import CardList from './cardlist/CardList';
 import FuncCard1 from './FuncCard1/FuncCard1';
 import ReactHookCard from './reacthook/ReactHookCard';
+import LearnReduxCard1 from './learnRedux/LearnReduxCard';
+import IncrementCounterButton from './learnRedux/IncrementCounterButton';
 import reportWebVitals from './reportWebVitals';
 import ReactDOMServer from 'react-dom/server'
+//Redux related START ==================================
+import rootReducer from './learnRedux/reducers/RootReducer';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+//Redux related END ==================================
 
 const containerForReact = document.getElementById('reactContainer1');
 const root = ReactDOM.createRoot(containerForReact, ()=>{
@@ -36,8 +44,30 @@ var userList = [
    }
  ];
 
+// Redux store creation START =========================
+var learnReduxStore1 = createStore(rootReducer, applyMiddleware(thunk));
+// Redux store creation END =========================
+
 var rootElem =
 <div>
+  <Provider store={learnReduxStore1}>
+  <div style={{
+                background: 'teal',
+                padding: '20px',
+                margin: '20px',
+                borderRadius: '20px'
+                }
+                }>
+     Redux examples
+    <LearnReduxCard1/>
+    <LearnReduxCard1/>
+    <LearnReduxCard1/>
+    <LearnReduxCard1/>
+    <LearnReduxCard1/>
+    <LearnReduxCard1/>
+    <IncrementCounterButton />
+    </div>
+  </Provider>
   <ReactHookCard/>
   <FuncCard1/>
   <CardList sourceUrl="https://run.mocky.io/v3/3a1e1488-297f-4f3d-bd28-4d3ade8fba3f" 
